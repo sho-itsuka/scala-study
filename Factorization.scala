@@ -11,7 +11,9 @@ object Factorization extends App {
 
 
 /* 学習メモ
+
   * factorization は、英語で因数分解のこと。
+
   * シーケンスを表す Seq
     シーケンスという1つの種類の型から構成される要素のコレクション。
     配列と同じように添字も利用できる。内部的な実装は異なるが、使い方はほとんど配列と同じ。
@@ -38,6 +40,11 @@ object Factorization extends App {
 
 
   * 連想配列を表す Map
+    お馴染みの連想配列。REPL でMap("key1" -> 1, "key" -> 2)と入力し、連想配列を作成してみる。
+      scala > Map("key1" -> 1, "key" -> 2)
+      res3: scala.collection.immutable.Map[String,Int] = Map(key -> 1, key2 -> 2)
+
+    
 */
 
 
