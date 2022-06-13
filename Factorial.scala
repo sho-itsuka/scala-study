@@ -7,7 +7,6 @@ object Factorial extends App {
 }
 
 
-
 /* 学習メモ
 
 1 | import scala.math.BigInt
