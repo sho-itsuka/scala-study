@@ -41,8 +41,31 @@ object Factorization extends App {
 
   * 連想配列を表す Map
     お馴染みの連想配列。REPL でMap("key1" -> 1, "key" -> 2)と入力し、連想配列を作成してみる。
+
       scala > Map("key1" -> 1, "key" -> 2)
       res3: scala.collection.immutable.Map[String,Int] = Map(key -> 1, key2 -> 2)
+      
+      scala.collection.immutable.Map[String,Int]は、実際の型が scala.collection.immutable.Map であり、キーの型がInt型であることを表している。
+      
+
+      次に、 res3("key2") と入力してみる。
+
+      scala> res3("key2")
+      res4: Int = 2
+
+      キーを () で引数で与えると、その値が取得される。
+      また、このMap も基本的には普遍のコレクションである。
+      キーと値の組み合わせを追加したい場合には、res3 + ("key3" -> 3)のように入力すると、
+
+      scala> res3 + ("key3" -> 3)
+      res5: scala.collection.immutable.Map[String,Int] = Map(key1 -> 1, key2 -> 2, key3 -> 3)
+
+      以上のように、
+
+      Map(key1 -> 1, key2 ->2, key3 -> 3) というキーと値が新たに追加された連想配列が作成される。
+
+
+
 
     
 */
