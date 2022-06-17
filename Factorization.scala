@@ -30,6 +30,8 @@ object Factorization extends App {
  9 | Map(2 -> 3, 3 -> 1)
     あらかじめ答えとなる、2が3回、3が1回という素因数分解の結果を入力してある。
 
+ 12 | println(factorizationRec(target, 2, Map()))
+  関数の呼び出しで対象となる数をtarget、再帰を始める割る数divisorの初期値を2、連想配列は空を表すMap()として呼び出してある。
 
 */
 
@@ -38,7 +40,7 @@ object Factorization extends App {
 
   * factorization は、英語で因数分解のこと。
 
-  * シーケンスを表す Seq
+  * シーケンス(あらかじめ決められた順序で処理を行う)を表す Seq
     シーケンスという1つの種類の型から構成される要素のコレクション。
     配列と同じように添字も利用できる。内部的な実装は異なるが、使い方はほとんど配列と同じ。
 
