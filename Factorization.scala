@@ -10,6 +10,20 @@ object Factorization extends App {
 }
 
 
+/* 解説
+ 1 | import scala.math.sqrt
+    平方根を求める関数 def sqrt(x:Double): Double を利用できるようにしている。
+
+ 5 | val maxDivisor = sqrt(target).toInt
+    sqrt 関数を利用して「割る数の最大値」を計算している。
+    ただし、sqrt 関数は戻り値の型が浮動小数点数であるDouble値であるため、toInt メソッドを呼ぶことでInt型に変換している。
+    これで小数点部分は切る捨てられる。
+    最後に println 関数で「悪数の最大値」をコンソールに出力してある。
+
+
+*/
+
+
 /* 学習メモ
 
   * factorization は、英語で因数分解のこと。
@@ -40,7 +54,8 @@ object Factorization extends App {
 
 
   * 連想配列を表す Map
-    お馴染みの連想配列。REPL でMap("key1" -> 1, "key" -> 2)と入力し、連想配列を作成してみる。
+    お馴染みの連想配列(連想配列：好きな添字をつけられる配列)。
+      REPL で Map("key1" -> 1, "key" -> 2)と入力し、連想配列を作成してみる。
 
       scala > Map("key1" -> 1, "key" -> 2)
       res3: scala.collection.immutable.Map[String,Int] = Map(key -> 1, key2 -> 2)
@@ -54,7 +69,7 @@ object Factorization extends App {
       res4: Int = 2
 
       キーを () で引数で与えると、その値が取得される。
-      また、このMap も基本的には普遍のコレクションである。
+      また、この Map も基本的には普遍のコレクションである。
       キーと値の組み合わせを追加したい場合には、res3 + ("key3" -> 3)のように入力すると、
 
       scala> res3 + ("key3" -> 3)
