@@ -22,12 +22,12 @@ object Factorization extends App {
     ただし、sqrt 関数は戻り値の型が浮動小数点数であるDouble値であるため、toInt メソッドを呼ぶことでInt型に変換している。
     これで小数点部分は切り捨てられる。
 
-  8 | def factorizationRec(num: Int, divisor: Int, acc: Map[Int, Int]): Map[Int, Int]
+ 8 | def factorizationRec(num: Int, divisor: Int, acc: Map[Int, Int]): Map[Int, Int]
     引数は、現在の数値である割られる数をInt型のnum、割る数をInt型のdivisor、ここまでの結果を Map[Int, Int]型のaccとして、キー・値ともにInt型の連想配列として定義した。
     戻り値も同様に、Map[Int, Int] としている。
     ※ accとは、 accumulator(アキュムレーター)の略で、累算器の意。
 
-  9 | Map(2 -> 3, 3 -> 1)
+ 9 | Map(2 -> 3, 3 -> 1)
     あらかじめ答えとなる、2が3回、3が1回という素因数分解の結果を入力してある。
 
 
