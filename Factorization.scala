@@ -2,7 +2,7 @@
 import scala.math.sqrt
 
 object Factorization extends App {
-  val target = 24
+  val target = 510510
   val maxDivisor = sqrt(target).toInt
 
   def factorizationRec(num: Int, divisor: Int, acc: Map[Int, Int]):Map[Int, Int] = {
@@ -117,22 +117,13 @@ object Factorization extends App {
 
       Map(key1 -> 1, key2 ->2, key3 -> 3) というキーと値が新たに追加された連想配列が作成される。
 
-
-
-
-    
 */
 
+/* まとめ
 
-/* 解説
- 1 | import scala.math.sqrt
-    平方根を求める関数 def sqrt(x:Double): Double を利用できるようにしている。
+ * Scala には、シーケンスを表す Seq と、連想配列を表す Map というコレクションがある
+ * Scala の Seq と Map は、基本的には不変のコレクションで、そのコレクション自体を変更できない
+ * 不変のコレクションは、追加操作をすることで追加された別なコレクションを取得できる
 
- 5 | val maxDivisor = sqrt(target).toInt
-    sqrt 関数を利用して「割る数の最大値」を計算している。
-    ただし、sqrt 関数は戻り値の型が浮動小数点数であるDouble値であるため、toInt メソッドを呼ぶことでInt型に変換している。
-    これで小数点部分は切る捨てられる。
-    最後に println 関数で「悪数の最大値」をコンソールに出力してある。
+*/
 
-
- */
