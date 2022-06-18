@@ -1,4 +1,4 @@
-// 素因数分解のアプリケーションのオブジェクトを作る
+// 素因数分解のアプリケーション
 import scala.math.sqrt
 
 object Factorization extends App {
@@ -6,7 +6,14 @@ object Factorization extends App {
   val maxDivisor = sqrt(target).toInt
 
   def factorizationRec(num: Int, divisor: Int, acc: Map[Int, Int]):Map[Int, Int] = {
-    Map(2 -> 3, 3 -> 1)
+    if (divisor > maxDivisor) {
+      if (num == 1) acc else acc + (num -> 1)
+    } else if (num % divisor == 0) {
+      val nextAcc = acc + (divisor -> (acc.getOrelse(divisor, 0) + 1))
+      factorizationRec(num / divisor, divisor, nextAcc)
+    } else {
+      factorizationRec(num, divisor + 1, acc)
+    }
   }
 
   println(factorizationRec(target, 2, Map()))
@@ -27,8 +34,6 @@ object Factorization extends App {
     戻り値も同様に、Map[Int, Int] としている。
     ※ accとは、 accumulator(アキュムレーター)の略で、累算器の意。
 
- 9 | Map(2 -> 3, 3 -> 1)
-    あらかじめ答えとなる、2が3回、3が1回という素因数分解の結果を入力してある。
 
  12 | println(factorizationRec(target, 2, Map()))
   関数の呼び出しで対象となる数をtarget、再帰を始める割る数divisorの初期値を2、連想配列は空を表すMap()として呼び出してある。
