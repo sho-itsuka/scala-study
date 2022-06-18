@@ -40,10 +40,16 @@ object Factorization extends App {
     ただし、割られる数 num が1の場合は、1は約数にならないので足さず、そのままの結果を返す。
 
  11 | } else if (num % divisor == 0) {
- 12 |   val nextAcc = acc + (divisor -> (acc.getOrelse(divisor, 0) + 1))
+ 12 |   val nextAcc = acc + (divisor -> (acc.getOrElse(divisor, 0) + 1))
  13 |   factorizationRec(num / divisor, divisor, nextAcc)
     これは「割る数 divisor で割り切れる」の実装である。
+    12行目は、現在の「結果」accを元に、現在の「結果」のキーの答えが1多くなるような、nextAcc という値を作っている。
 
+    Scala では、連想配列の Map に、 Map() + (key -> value) という形式で記述することにより、そのキーの値を、 key と value で更新したい Map を取得できる。
+    ここでは、割る数である divisor をキーに、 acc.getOrElse(divisor, 0) で得られる現在の割った回数に1を足した値のものを取得している。
+
+    Map の getOrElse メソッドは、第一引数にはそのキーを与え、第二引数にキーの値がなかった場合の値を設定できる。
+    そのため、ここでは割る数 divisor に対して、値が設定されていなかった際には 0 が取得される。
 
  19 | println(factorizationRec(target, 2, Map()))
   関数の呼び出しで対象となる数をtarget、再帰を始める割る数divisorの初期値を2、連想配列は空を表すMap()として呼び出してある。
