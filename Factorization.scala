@@ -34,8 +34,18 @@ object Factorization extends App {
     戻り値も同様に、Map[Int, Int] としている。
     ※ accとは、 accumulator(アキュムレーター)の略で、累算器の意。
 
+ 9  | if (divisor > maxDivisor) {
+ 10 |   if (num == 1) acc else acc + (num -> 1)
+    割る数 divisor が、割る数の最大値 maxDivisor より大きくなってしまった時に、現在までの結果 acc に今の割られる数 num を足した結果を答えにする。
+    ただし、割られる数 num が1の場合は、1は約数にならないので足さず、そのままの結果を返す。
 
- 12 | println(factorizationRec(target, 2, Map()))
+ 11 | } else if (num % divisor == 0) {
+ 12 |   val nextAcc = acc + (divisor -> (acc.getOrelse(divisor, 0) + 1))
+ 13 |   factorizationRec(num / divisor, divisor, nextAcc)
+    これは「割る数 divisor で割り切れる」の実装である。
+
+
+ 19 | println(factorizationRec(target, 2, Map()))
   関数の呼び出しで対象となる数をtarget、再帰を始める割る数divisorの初期値を2、連想配列は空を表すMap()として呼び出してある。
 
 */
