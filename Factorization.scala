@@ -9,7 +9,7 @@ object Factorization extends App {
     if (divisor > maxDivisor) {
       if (num == 1) acc else acc + (num -> 1)
     } else if (num % divisor == 0) {
-      val nextAcc = acc + (divisor -> (acc.getOrelse(divisor, 0) + 1))
+      val nextAcc = acc + (divisor -> (acc.getOrElse(divisor, 0) + 1))
       factorizationRec(num / divisor, divisor, nextAcc)
     } else {
       factorizationRec(num, divisor + 1, acc)
