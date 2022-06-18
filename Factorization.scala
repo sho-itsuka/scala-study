@@ -30,29 +30,34 @@ object Factorization extends App {
     これで小数点部分は切り捨てられる。
 
  8 | def factorizationRec(num: Int, divisor: Int, acc: Map[Int, Int]): Map[Int, Int]
-    引数は、現在の数値である割られる数をInt型のnum、割る数をInt型のdivisor、ここまでの結果を Map[Int, Int]型のaccとして、キー・値ともにInt型の連想配列として定義した。
+    引数は、現在の数値である「割られる数」をInt型のnum、「割る数」をInt型のdivisor、ここまでの結果を Map[Int, Int]型のaccとして、キー・値ともにInt型の連想配列として定義した。
     戻り値も同様に、Map[Int, Int] としている。
     ※ accとは、 accumulator(アキュムレーター)の略で、累算器の意。
 
  9  | if (divisor > maxDivisor) {
  10 |   if (num == 1) acc else acc + (num -> 1)
-    割る数 divisor が、割る数の最大値 maxDivisor より大きくなってしまった時に、現在までの結果 acc に今の割られる数 num を足した結果を答えにする。
-    ただし、割られる数 num が1の場合は、1は約数にならないので足さず、そのままの結果を返す。
+    「割る数」 divisor が、「割る数」の最大値 maxDivisor より大きくなってしまった時に、現在までの結果 acc に今の「割られる数」 num を足した結果を答えにする。
+    ただし、「割られる数」 num が 1 の場合は、1 は約数にならないので足さず、そのままの結果を返す。
 
  11 | } else if (num % divisor == 0) {
  12 |   val nextAcc = acc + (divisor -> (acc.getOrElse(divisor, 0) + 1))
  13 |   factorizationRec(num / divisor, divisor, nextAcc)
     これは「割る数 divisor で割り切れる」の実装である。
-    12行目は、現在の「結果」accを元に、現在の「結果」のキーの答えが1多くなるような、nextAcc という値を作っている。
 
+    12行目は、現在の「結果」accを元に、現在の「結果」のキーの答えが 1 多くなるような、nextAcc という値を作っている。
     Scala では、連想配列の Map に、 Map() + (key -> value) という形式で記述することにより、そのキーの値を、 key と value で更新したい Map を取得できる。
-    ここでは、割る数である divisor をキーに、 acc.getOrElse(divisor, 0) で得られる現在の割った回数に1を足した値のものを取得している。
+    ここでは、「割る数」である divisor をキーに、 acc.getOrElse(divisor, 0) で得られる現在の割った回数に1を足した値のものを取得している。
 
     Map の getOrElse メソッドは、第一引数にはそのキーを与え、第二引数にキーの値がなかった場合の値を設定できる。
-    そのため、ここでは割る数 divisor に対して、値が設定されていなかった際には 0 が取得される。
+    そのため、ここでは「割る数」 divisor に対して、値が設定されていなかった際には 0 が取得される。
 
+ 14 | } else {
+ 15 |   factorizationRec(num, divisor + 1, acc)
+    これは割り切れなかった場合の記述である。
+    「割られる数」 num は、そのまま「割る数」 divisor を 1 足して、「結果」 acc も同じものを利用して再帰呼び出しを行う。 
+ 
  19 | println(factorizationRec(target, 2, Map()))
-  関数の呼び出しで対象となる数をtarget、再帰を始める割る数divisorの初期値を2、連想配列は空を表すMap()として呼び出してある。
+  関数の呼び出しで対象となる数をtarget、再帰を始める「割る数」 divisorの初期値を2、連想配列は空を表すMap()として呼び出してある。
 
 */
 
