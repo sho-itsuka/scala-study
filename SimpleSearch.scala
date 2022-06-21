@@ -90,4 +90,18 @@ object SimpleSearch extends App {
 
   println(s"出現場所: ${matchIndexes}")
 }
+
+/* 【解説】
+ * 検索対象の「文書」が text で、検索する「パターン」を pattern とする。
+   これらの定数にそれぞれ toSeq を呼び出すことで、Seq[Char]型に変換しておく。
+   答えは、matchIndexes とし、まずここでは仮の答えの殻のシーケンスを代入してある。
+ 
+ * sbt を起動し、 runMain SimpleSearch を実行すると、
+
+   [info] Running SimpleSearch
+   出現場所: List()
+
+  のように表示される。
+
+*/
  
