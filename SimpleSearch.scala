@@ -117,5 +117,9 @@ object SimpleSearch extends App {
     matchIndexes を空のシーケンスから、search 関数を呼び出した結果に置き換えている。
     search 関数には、「文書」と「パターン」を与える。
 
+  6 | def search(text: Seq[Char], pattern: Seq[Char]): Seq[Int] = {
+    以上が search 関数のインタフェースである。text と pattern も Seq[Char] 型である。
+    戻り値には出現箇所の添字を取得するために、Seq[Int] 型にしている。
+
 */
  
