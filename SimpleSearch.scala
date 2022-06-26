@@ -112,5 +112,10 @@ object SimpleSearch extends App {
 
   のように表示される。
 
+
+  4 | val matchIndexes = search(text, pattern)
+    matchIndexes を空のシーケンスから、search 関数を呼び出した結果に置き換えている。
+    search 関数には、「文書」と「パターン」を与える。
+
 */
  
