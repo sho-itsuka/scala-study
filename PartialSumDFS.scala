@@ -3,14 +3,14 @@ object PartialSumDFS extends App {
   val n = a.length
   val k = 8
 
-  def isMatchAndResult(index: Int, partial: Seq[Int]: (Boolean, Seq[Int]) = {
+  def isMatchAndResult(index: Int, partial: Seq[Int]): (Boolean, Seq[Int]) = {
     if(index == n) {
       return if (partial.sum == k) (true, partial) else (false, Seq())
     }
     val (isMatchNotAdd, resultNotAdd) = isMatchAndResult(index + 1, partial)
-    if(isMatchNotAdd, resultNotAdd) = isMatchAndResult(index + 1, partial)
+    if(isMatchNotAdd) return (isMatchNotAdd, resultNotAdd)
 
-    isMatchAndResult(index + 1, partial :+ 1(index))
+    isMatchAndResult(index + 1, partial :+ a(index))
   }
 
   val (isMatch, result) = isMatchAndResult(0, Seq())
